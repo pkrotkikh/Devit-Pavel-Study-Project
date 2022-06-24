@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-    db:
+    mysql:
         image: mysql:8
         volumes:
             - mysql-data:/var/lib/mysql
@@ -15,7 +15,7 @@ services:
             context: ./
             dockerfile: ./docker/apache2/Dockerfile
         depends_on:
-            - db
+            - mysql
         volumes:
             - ".:/var/www/html"
         ports:
