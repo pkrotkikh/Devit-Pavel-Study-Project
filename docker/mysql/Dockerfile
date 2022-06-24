@@ -1,0 +1,8 @@
+FROM mysql:latest
+
+MAINTAINER pkrotkikh@gmail.com
+
+ENV MYSQL_ROOT_PASSWORD root
+ENV MYSQL_DATABASE todos
+
+EXPOSE 3306

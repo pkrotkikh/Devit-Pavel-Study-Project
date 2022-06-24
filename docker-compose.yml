@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+    db:
+        image: mysql:8
+        volumes:
+            - mysql-data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: todos
+        ports:
+            - "3306:3306"
+    php:
+        build:
+            context: ./
+            dockerfile: ./docker/apache2/Dockerfile
+        depends_on:
+            - db
+        volumes:
+            - ".:/var/www/html"
+        ports:
+            - "80:80"
+            - "443:443"
+
+volumes:
+    mysql-data:
