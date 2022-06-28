@@ -22,6 +22,8 @@ Route::prefix("v1")->group(function (){
 
     Route::group(['middleware' => ['auth:api']], function () {
         Route::get("users/profile", [UserController::class, "profile"])->name("api.user.profile");
+        Route::get("users/{user_id}", [UserController::class, "otherProfile"])->name("api.user.profile");
+        Route::get("users/{user_id}/tweets", [UserController::class, "userTweets"])->name("api.user.profile");
 
         Route::get('tweets', [TweetController::class, 'index'])->name("api.tweet.index");
         Route::get('tweets/{id}', [TweetController::class, 'show'])->name("api.tweet.show");

@@ -264,9 +264,37 @@
                                     "type": "array",
                                     "items": {
                                         "properties": {
-                                            "tweet": {
-                                                "type": "string",
-                                                "example": "Tweet"
+                                            "tweets": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "author_id": {
+                                                            "type": "integer",
+                                                            "example": "1"
+                                                        },
+                                                        "parent_id": {
+                                                            "type": "integer",
+                                                            "example": "2"
+                                                        },
+                                                        "retweet_id": {
+                                                            "type": "integer",
+                                                            "example": "3"
+                                                        },
+                                                        "text": {
+                                                            "type": "string",
+                                                            "example": "Sample Text"
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "example": "2022-06-25T16:37:59.000000Z"
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "example": "2022-06-25T16:37:59.000000Z"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
                                             }
                                         },
                                         "type": "object"
@@ -667,14 +695,57 @@
                 "tags": [
                     "User"
                 ],
-                "description": "Get logged in users' information",
+                "description": "Get users' profile information",
                 "operationId": "97c0d4676831c8c753f746f0ced783ef",
                 "responses": {
                     "200": {
                         "description": "Success",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "status": {
+                                                "type": "string",
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "User information"
+                                            },
+                                            "user": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": "1"
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "Joe Doe"
+                                                        },
+                                                        "email": {
+                                                            "type": "string",
+                                                            "example": "joe.doe@gmail.com"
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "example": "2022-06-25T16:37:59.000000Z"
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "example": "2022-06-25T16:37:59.000000Z"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
                             }
                         }
                     },
@@ -682,7 +753,18 @@
                         "description": "Unauthorized",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Unauthenticated."
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
                             }
                         }
                     }
@@ -697,6 +779,181 @@
                         "bearerFormat": "bearer"
                     }
                 ]
+            }
+        },
+        "/api/v1/users/{user_id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "description": "Get other users' profile information",
+                "operationId": "6f05bfc0bdd80512beb4a1d9c41cc5c5",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "status": {
+                                                "type": "string",
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "User information"
+                                            },
+                                            "user": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": "1"
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "Joe Doe"
+                                                        },
+                                                        "email": {
+                                                            "type": "string",
+                                                            "example": "joe.doe@gmail.com"
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "example": "2022-06-25T16:37:59.000000Z"
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "example": "2022-06-25T16:37:59.000000Z"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Unauthenticated."
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "securityScheme": "passport",
+                        "type": "apiKey",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "bearerFormat": "bearer"
+                    }
+                ]
+            }
+        },
+        "/api/v1/users/{user_id}/tweets": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "description": "Show users' tweets",
+                "operationId": "f6701e1ace3e1cf7907f3ef4abc38df7",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "User identification",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            },
+                                            "author_id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            },
+                                            "parent_id": {
+                                                "type": "integer",
+                                                "example": "2"
+                                            },
+                                            "retweet_id": {
+                                                "type": "integer",
+                                                "example": "3"
+                                            },
+                                            "text": {
+                                                "type": "string",
+                                                "example": "Sample Text"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "example": "2022-06-28T09:48:36.000000Z"
+                                            },
+                                            "updated_at": {
+                                                "type": "string",
+                                                "example": "2022-06-28T09:48:36.000000Z"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Unauthenticated."
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     },

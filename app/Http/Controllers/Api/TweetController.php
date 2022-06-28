@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Tweet\TweetRequest;
+use App\Http\Requests\TweetUpdateRequest;
 use App\Models\Tweet;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
@@ -25,12 +26,45 @@ class TweetController extends Controller
                     items: new OAT\Items(
                         properties: [
                             new OAT\Property(
-                                property:"tweet",
-                                type:"string",
-                                example: "Tweet"
-                            )
-                        ]
-                    )
+                                property:"tweets",
+                                type:"array",
+                                items: new OAT\Items(
+                                    properties: [
+                                        new OAT\Property(
+                                            property: "author_id",
+                                            type: "integer",
+                                            example: "1",
+                                        ),
+                                        new OAT\Property(
+                                            property: "parent_id",
+                                            type: "integer",
+                                            example: "2",
+                                        ),
+                                        new OAT\Property(
+                                            property: "retweet_id",
+                                            type: "integer",
+                                            example: "3",
+                                        ),
+                                        new OAT\Property(
+                                            property: "text",
+                                            type: "string",
+                                            example: "Sample Text",
+                                        ),
+                                        new OAT\Property(
+                                            property: "created_at",
+                                            type: "string",
+                                            example: "2022-06-25T16:37:59.000000Z",
+                                        ),
+                                        new OAT\Property(
+                                            property: "updated_at",
+                                            type: "string",
+                                            example: "2022-06-25T16:37:59.000000Z",
+                                        ),
+                                    ]
+                                ),
+                            ),
+                        ],
+                    ),
                 )
             ),
             new OAT\Response(
@@ -54,8 +88,7 @@ class TweetController extends Controller
     )]
     public function index() : Collection
     {
-        $user = Auth::user();
-        $tweets = $user->tweets;
+        $tweets = Tweet::all();
 
         return $tweets;
     }
@@ -144,8 +177,7 @@ class TweetController extends Controller
     )]
     public function show($id) :Tweet
     {
-        $user = Auth::user();
-        $tweet = $user->tweets()->whereId($id)->first();
+        $tweet = Tweet::whereId($id)->first();
 
         return $tweet;
     }
@@ -378,11 +410,11 @@ class TweetController extends Controller
             ),
         ]
     )]
-    public function update(TweetRequest $request, $id) : JsonResponse
+    public function update(TweetUpdateRequest $request, $id) : JsonResponse
     {
         $user = Auth::user();
         $tweet = $user->tweets()->whereId($id)->first();
-        $tweet->update($request->all());
+        $tweet->update($request->only(["text"]));
 
         return response()->json([
             'status' => 'success',
