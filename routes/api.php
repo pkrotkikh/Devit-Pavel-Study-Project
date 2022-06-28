@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\TweetController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,18 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post("v1/auth/register", [AuthController::class, "register"])->name("api.auth.register");
-Route::post("v1/auth/login", [AuthController::class, "login"])->name("api.auth.login");
-Route::get("v1/auth/me", [AuthController::class, "me"])->name("api.auth.me");
+
+Route::prefix("v1")->group(function (){
+    Route::post("auth/register", [AuthController::class, "register"])->name("api.auth.register");
+    Route::post("auth/login", [AuthController::class, "login"])->name("api.auth.login");
+
+    Route::group(['middleware' => ['auth:api']], function () {
+        Route::get("users/profile", [UserController::class, "profile"])->name("api.user.profile");
+
+        Route::get('tweets', [TweetController::class, 'index'])->name("api.tweet.index");
+        Route::get('tweets/{id}', [TweetController::class, 'show'])->name("api.tweet.show");
+        Route::post('tweets', [TweetController::class, 'store'])->name("api.tweet.store");
+        Route::put('tweets/{id}', [TweetController::class, 'update'])->name("api.tweet.update");
+        Route::delete('tweets/{id}', [TweetController::class, 'delete'])->name("api.tweet.delete");
+    });
+});

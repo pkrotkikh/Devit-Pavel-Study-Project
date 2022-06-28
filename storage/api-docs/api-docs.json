@@ -11,7 +11,7 @@
                     "Auth"
                 ],
                 "description": "Register user",
-                "operationId": "b8abbf73d05171481cb141d1bf12056c",
+                "operationId": "fb835c97347e657e2a627790c4c5817a",
                 "parameters": [
                     {
                         "name": "name",
@@ -46,7 +46,66 @@
                         "description": "Success",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "status": {
+                                                "type": "string",
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "User created successfully"
+                                            },
+                                            "user": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": "1"
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "Joe Doe"
+                                                        },
+                                                        "email": {
+                                                            "type": "string",
+                                                            "example": "joe.doe@gmail.com"
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "example": "2022-06-25T16:37:59.000000Z"
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "example": "2022-06-25T16:37:59.000000Z"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "authorization": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "token": {
+                                                            "type": "string",
+                                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS92MS9hdXRoL2xvZ2luIiwiaWF0IjoxNjU2NDE2NTY4LCJleHAiOjE2NTY0MjAxNjgsIm5iZiI6MTY1NjQxNjU2OCwianRpIjoiZ1BvQ1FOR3Z3b0xsVDdPMSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.8omuvueL7GbQU8-0icDybWdXSqsRGtbKY6B78Ck0z3E"
+                                                        },
+                                                        "type": {
+                                                            "type": "string",
+                                                            "example": "jwt"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
                             }
                         }
                     },
@@ -54,7 +113,18 @@
                         "description": "Unauthorized",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Unauthenticated."
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
                             }
                         }
                     }
@@ -67,7 +137,7 @@
                     "Auth"
                 ],
                 "description": "Login user",
-                "operationId": "0e326ce09f6496b8aa071164115ce2e0",
+                "operationId": "fb66b153966d9fac2e999136ef0ade67",
                 "parameters": [
                     {
                         "name": "email",
@@ -93,7 +163,66 @@
                         "description": "Success",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "status": {
+                                                "type": "string",
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "You have successfully logged in!"
+                                            },
+                                            "user": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": "1"
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "Joe Doe"
+                                                        },
+                                                        "email": {
+                                                            "type": "string",
+                                                            "example": "joe.doe@gmail.com"
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "example": "2022-06-25T16:37:59.000000Z"
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "example": "2022-06-25T16:37:59.000000Z"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "authorization": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "token": {
+                                                            "type": "string",
+                                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS92MS9hdXRoL2xvZ2luIiwiaWF0IjoxNjU2NDE2NTY4LCJleHAiOjE2NTY0MjAxNjgsIm5iZiI6MTY1NjQxNjU2OCwianRpIjoiZ1BvQ1FOR3Z3b0xsVDdPMSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.8omuvueL7GbQU8-0icDybWdXSqsRGtbKY6B78Ck0z3E"
+                                                        },
+                                                        "type": {
+                                                            "type": "string",
+                                                            "example": "jwt"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
                             }
                         }
                     },
@@ -101,20 +230,445 @@
                         "description": "Unauthorized",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Unauthenticated."
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
         },
-        "/api/v1/auth/me": {
+        "/api/v1/tweets": {
             "get": {
                 "tags": [
-                    "Auth"
+                    "Tweet"
+                ],
+                "description": "All tweet",
+                "operationId": "caee67029b08752dbc768f3bcfed70b3",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "tweet": {
+                                                "type": "string",
+                                                "example": "Tweet"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Unauthenticated."
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/tweets/{id}": {
+            "get": {
+                "tags": [
+                    "Tweet"
+                ],
+                "description": "Show tweet",
+                "operationId": "29e1093c40cf772d4799e0b11fe2ec78",
+                "parameters": [
+                    {
+                        "name": "tweet_id",
+                        "in": "path",
+                        "description": "Tweet identification",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            },
+                                            "author_id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            },
+                                            "parent_id": {
+                                                "type": "integer",
+                                                "example": "2"
+                                            },
+                                            "retweet_id": {
+                                                "type": "integer",
+                                                "example": "3"
+                                            },
+                                            "text": {
+                                                "type": "string",
+                                                "example": "Sample Text"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "example": "2022-06-28T09:48:36.000000Z"
+                                            },
+                                            "updated_at": {
+                                                "type": "string",
+                                                "example": "2022-06-28T09:48:36.000000Z"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Unauthenticated."
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Tweet"
+                ],
+                "description": "Update tweet",
+                "operationId": "29912e868f9f4d894c1b2ef0c2277500",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Tweet identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "text",
+                        "in": "query",
+                        "description": "Tweet text",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "parent_id",
+                        "in": "query",
+                        "description": "To which tweet attach comment",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "retweet_id",
+                        "in": "query",
+                        "description": "ID of the tweet from which we make a new tweet",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "status": {
+                                                "type": "string",
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Tweet created successfully"
+                                            },
+                                            "tweet": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "author_id": {
+                                                            "type": "integer",
+                                                            "example": "1"
+                                                        },
+                                                        "parent_id": {
+                                                            "type": "integer",
+                                                            "example": "2"
+                                                        },
+                                                        "retweet_id": {
+                                                            "type": "integer",
+                                                            "example": "3"
+                                                        },
+                                                        "text": {
+                                                            "type": "string",
+                                                            "example": "Sample Text"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Unauthenticated."
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Tweet"
+                ],
+                "description": "Delete tweet",
+                "operationId": "3e211060c90347416a0370e5b0ed34eb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Tweet identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "status": {
+                                                "type": "string",
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Tweet deleted successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Unauthenticated."
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/tweets/": {
+            "post": {
+                "tags": [
+                    "Tweet"
+                ],
+                "description": "Store tweet",
+                "operationId": "8615446bcd6a4424f67356193bfa1e72",
+                "parameters": [
+                    {
+                        "name": "text",
+                        "in": "query",
+                        "description": "Tweet text",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "parent_id",
+                        "in": "query",
+                        "description": "To which tweet attach comment",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "retweet_id",
+                        "in": "query",
+                        "description": "ID of the tweet from which we make a new tweet",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "status": {
+                                                "type": "string",
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Tweet created successfully"
+                                            },
+                                            "tweet": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "author_id": {
+                                                            "type": "integer",
+                                                            "example": "1"
+                                                        },
+                                                        "parent_id": {
+                                                            "type": "integer",
+                                                            "example": "2"
+                                                        },
+                                                        "retweet_id": {
+                                                            "type": "integer",
+                                                            "example": "3"
+                                                        },
+                                                        "text": {
+                                                            "type": "string",
+                                                            "example": "Sample Text"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Unauthenticated."
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/users/profile": {
+            "get": {
+                "tags": [
+                    "User"
                 ],
                 "description": "Get logged in users' information",
-                "operationId": "ca96b8331ed79555b759388fae4316e6",
+                "operationId": "97c0d4676831c8c753f746f0ced783ef",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -135,7 +689,7 @@
                 },
                 "security": [
                     {
-                        "securityScheme": "bearer_token",
+                        "securityScheme": "passport",
                         "type": "apiKey",
                         "description": "Authorization",
                         "name": "Authorization",
@@ -148,6 +702,20 @@
     },
     "components": {
         "securitySchemes": {
+            "passport": {
+                "type": "apiKey",
+                "description": "Laravel passport oauth2 security.",
+                "in": "header",
+                "scheme": "https",
+                "flows": {
+                    "password": {
+                        "authorizationUrl": "http://localhost/oauth/authorize",
+                        "tokenUrl": "http://localhost/oauth/token",
+                        "refreshUrl": "http://localhost/token/refresh",
+                        "scopes": []
+                    }
+                }
+            },
             "bearer_token": {
                 "type": "apiKey",
                 "description": "Enter token in format (Bearer <token>)",
