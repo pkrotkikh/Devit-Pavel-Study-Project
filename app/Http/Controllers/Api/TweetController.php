@@ -495,8 +495,8 @@ class TweetController extends Controller
     }
 
     #[OAT\Get(
-        path: '/api/v1/tweets/{id}/like',
-        description: "Like tweet",
+        path: '/api/v1/tweets/{id}/toggle_like',
+        description: "Toggle like tweet",
         tags: ['Tweet'],
         parameters: [
             new OAT\Parameter(
@@ -543,12 +543,12 @@ class TweetController extends Controller
                             new OAT\Property(
                                 property:"status",
                                 type:"string",
-                                example:"error"
+                                example:"error",
                             ),
                             new OAT\Property(
                                 property:"message",
                                 type:"string",
-                                example:"Error message during saving records!"
+                                example:"Error message during saving records!",
                             ),
                         ]
                     ),
@@ -556,7 +556,7 @@ class TweetController extends Controller
             ),
         ]
     )]
-    public function like($id) : JsonResponse|\Exception
+    public function toggleLike($id) : JsonResponse|\Exception
     {
         $user = Auth::user();
         $tweet = Tweet::find($id);
@@ -564,6 +564,7 @@ class TweetController extends Controller
 
         try{
             DB::transaction(function() use($user, $tweet, $id, $isLikeExists) {
+
                 if ($isLikeExists) {
                     $user->likes()->detach($id);
                     $tweet->setLikesCount($tweet->likes_count - 1);
@@ -573,6 +574,8 @@ class TweetController extends Controller
                     $tweet->setLikesCount($tweet->likes_count + 1);
                     $tweet->save();
                 }
+
+                DB::commit();
             });
         } catch (\Exception $e) {
             DB::rollback();
@@ -582,7 +585,6 @@ class TweetController extends Controller
                 'message' => collect($e->getMessage()),
             ], 500);
         }
-        DB::commit();
 
         if($isLikeExists) {
             return response()->json([

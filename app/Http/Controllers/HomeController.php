@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function vue()
+    public function index()
     {
-        return view("content/example_component");
+        return view("content/root");
     }
 }

@@ -5,16 +5,6 @@ use App\Http\Controllers\Api\TweetController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 
 Route::prefix("v1")->group(function (){
     Route::post("auth/register", [AuthController::class, "register"])->name("api.auth.register");
@@ -27,7 +17,7 @@ Route::prefix("v1")->group(function (){
 
         Route::get('tweets', [TweetController::class, 'index'])->name("api.tweet.index");
         Route::get('tweets/{id}', [TweetController::class, 'show'])->name("api.tweet.show");
-        Route::get('tweets/{id}/like', [TweetController::class, 'like'])->name("api.tweet.like");
+        Route::get('tweets/{id}/toggle_like', [TweetController::class, 'toggleLike'])->name("api.tweet.toggle_like");
         Route::post('tweets', [TweetController::class, 'store'])->name("api.tweet.store");
         Route::put('tweets/{id}', [TweetController::class, 'update'])->name("api.tweet.update");
         Route::delete('tweets/{id}', [TweetController::class, 'delete'])->name("api.tweet.delete");
