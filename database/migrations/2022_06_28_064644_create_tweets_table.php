@@ -29,6 +29,7 @@ return new class extends Migration
                 ->references('id')->on('tweets')->onDelete('set null');
 
             $table->text("text")->nullable();
+            $table->unsignedBigInteger("likes_count")->default(0);
 
             $table->timestamps();
         });

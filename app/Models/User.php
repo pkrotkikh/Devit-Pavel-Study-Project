@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -36,6 +38,8 @@ use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Tweet[] $tweets
  * @property-read int|null $tweets_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Tweet[] $likes
+ * @property-read int|null $likes_count
  */
 class User extends Authenticatable implements JWTSubject
 {
@@ -91,8 +95,13 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-    public function tweets()
+    public function tweets() : HasMany
     {
         return $this->hasMany(Tweet::class, 'author_id', 'id');
+    }
+
+    public function likes() : belongsToMany
+    {
+        return $this->belongsToMany(Tweet::class, 'tweets_likes');
     }
 }

@@ -15,8 +15,8 @@ class UserController extends Controller
         description: "Get users' profile information",
         security: [
             new OAT\SecurityScheme(
-                securityScheme: "passport",
-                type: "apiKey",
+                securityScheme: "oauth2",
+                type: "oauth2",
                 description: "Authorization",
                 name: "Authorization",
                 in: "header",

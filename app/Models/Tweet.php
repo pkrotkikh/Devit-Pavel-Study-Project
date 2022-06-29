@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Collection;
 
 /**
  * App\Models\Tweet
@@ -29,6 +32,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\Models\User|null $author
  * @property-read Tweet|null $parent
  * @property-read Tweet|null $retweet
+ * @property-read int|null $likes_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $likes
+ * @method static \Illuminate\Database\Eloquent\Builder|Tweet whereLikesCount($value)
  */
 class Tweet extends Model
 {
@@ -36,23 +42,34 @@ class Tweet extends Model
 
     protected $fillable = ['author_id', 'parent_id', 'retweet_id', 'text', 'created_at', 'updated_at'];
 
-    public function parent()
+    // RELATIONS
+    public function parent() : belongsTo
     {
         return $this->belongsTo(Tweet::class, 'parent_id', 'id');
     }
 
-    public function children()
+    public function children() : Collection
     {
-        $this->whereParentId($this->id)->get();
+        return $this->whereParentId($this->id)->get();
     }
 
-    public function retweet()
+    public function retweet() : belongsTo
     {
         return $this->belongsTo(Tweet::class, 'retweet_id', 'id');
     }
 
-    public function author()
+    public function author() : belongsTo
     {
         return $this->belongsTo(User::class, 'author_id', 'id');
+    }
+
+    public function likes() : belongsToMany
+    {
+        return $this->belongsToMany(User::class, 'tweets_likes');
+    }
+
+    // SETTER/GETTER
+    public function setLikesCount ($value){
+        $this->likes_count = $value;
     }
 }

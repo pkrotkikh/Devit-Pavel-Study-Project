@@ -9,6 +9,7 @@ use App\Models\Tweet;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use OpenApi\Attributes as OAT;
 
 class TweetController extends Controller
@@ -491,5 +492,108 @@ class TweetController extends Controller
             'status' => 'success',
             'message' => 'Tweet deleted successfully',
         ]);
+    }
+
+    #[OAT\Get(
+        path: '/api/v1/tweets/{id}/like',
+        description: "Like tweet",
+        tags: ['Tweet'],
+        parameters: [
+            new OAT\Parameter(
+                name: 'id',
+                description: 'Tweet identifier',
+                in: 'query',
+                required: true,
+                schema: new OAT\Schema(
+                    type: "integer",
+                )
+            ),
+        ],
+        responses: [
+            new OAT\Response(
+                response: 200,
+                description: 'Success',
+                content: new OAT\JsonContent(
+                    type: "array",
+                    items: new OAT\Items(
+                        properties:
+                        [
+                            new OAT\Property(
+                                property:"status",
+                                type:"string",
+                                example:"success"
+                            ),
+                            new OAT\Property(
+                                property:"message",
+                                type:"string",
+                                example:"Tweet successfully liked!"
+                            ),
+                        ]
+                    )
+                )
+            ),
+            new OAT\Response(
+                response: 500,
+                description: 'Internal Server Error',
+                content: new OAT\JsonContent(
+                    type: "array",
+                    items: new OAT\Items(
+                        properties:
+                        [
+                            new OAT\Property(
+                                property:"status",
+                                type:"string",
+                                example:"error"
+                            ),
+                            new OAT\Property(
+                                property:"message",
+                                type:"string",
+                                example:"Error message during saving records!"
+                            ),
+                        ]
+                    ),
+                ),
+            ),
+        ]
+    )]
+    public function like($id) : JsonResponse|\Exception
+    {
+        $user = Auth::user();
+        $tweet = Tweet::find($id);
+        $isLikeExists = $user->likes->contains($id);
+
+        try{
+            DB::transaction(function() use($user, $tweet, $id, $isLikeExists) {
+                if ($isLikeExists) {
+                    $user->likes()->detach($id);
+                    $tweet->setLikesCount($tweet->likes_count - 1);
+                    $tweet->save();
+                } else {
+                    $user->likes()->attach($id);
+                    $tweet->setLikesCount($tweet->likes_count + 1);
+                    $tweet->save();
+                }
+            });
+        } catch (\Exception $e) {
+            DB::rollback();
+
+            return response()->json([
+                'status' => 'error',
+                'message' => collect($e->getMessage()),
+            ], 500);
+        }
+        DB::commit();
+
+        if($isLikeExists) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Tweet successfully disliked!',
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Tweet successfully liked!',
+            ], 200);
+        }
     }
 }
