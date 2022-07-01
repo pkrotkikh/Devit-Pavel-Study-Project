@@ -26,9 +26,9 @@
             <div class="vertical-navbar">
                 <twitter-navbar></twitter-navbar>
             </div>
-            <div class="column-right content-container">
+            <main role="main" class="column-right content-container">
                 @yield('content')
-            </div>
+            </main>
         </div>
     </div>
 </body>
