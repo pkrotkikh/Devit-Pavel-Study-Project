@@ -33,10 +33,3 @@
     </div>
 </body>
 </html>
-
-<script>
-    import TwitterNavbar from "../../js/components/TwitterNavbar.vue";
-    export default {
-        components: {TwitterNavbar}
-    }
-</script>
