@@ -18,20 +18,25 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/root.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+    <div id="app" class="app">
+        <div class="row twitter-container">
+            <div class="vertical-navbar">
+                <twitter-navbar></twitter-navbar>
             </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+            <div class="column-right content-container">
+                @yield('content')
+            </div>
+        </div>
     </div>
 </body>
 </html>
+
+<script>
+    import TwitterNavbar from "../../js/components/TwitterNavbar.vue";
+    export default {
+        components: {TwitterNavbar}
+    }
+</script>

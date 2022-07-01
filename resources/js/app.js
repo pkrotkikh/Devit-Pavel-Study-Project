@@ -1,17 +1,8 @@
 import { createApp } from 'vue'
-import { createRouter, createWebHistory } from "vue-router";
-import Home from './components/Home.vue'
-import About from './components/About.vue'
-
-const router = createRouter({
-    history: createWebHistory(),
-    routes: [
-        {path: '/home', name: 'Home', component: Home},
-        {path: '/about', name: 'About', component: About},
-    ],
-});
+import router from './router/index'
+import TwitterNavbar from "./components/TwitterNavbar"
 
 const app = createApp({})
+app.component('twitter-navbar', TwitterNavbar)
 
 app.use(router).mount('#app')
-
