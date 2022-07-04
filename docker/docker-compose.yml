@@ -12,12 +12,12 @@ services:
             - "3306:3306"
     php:
         build:
-            context: ./
-            dockerfile: ./apache2/Dockerfile
+            context: ../
+            dockerfile: ./docker/apache2/Dockerfile
         depends_on:
             - mysql
         volumes:
-            - "../source:/var/www/html"
+            - "./source:/var/www/html"
         ports:
             - "80:80"
             - "443:443"
