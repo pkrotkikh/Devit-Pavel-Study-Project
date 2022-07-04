@@ -1,4 +1,7 @@
 version: "3.7"
+networks:
+    twitter:
+        external: false
 
 services:
     mysql:
@@ -17,10 +20,12 @@ services:
         depends_on:
             - mysql
         volumes:
-            - "./source:/var/www/html"
+            - ../source:/var/www/html:rw
         ports:
             - "80:80"
             - "443:443"
+        networks:
+            twitter:
 
 volumes:
     mysql-data:

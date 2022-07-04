@@ -20,4 +20,5 @@ RUN sudo a2enmod rewrite
 
 # Install composer
 WORKDIR /var/www/html
-COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+RUN curl -sS https://getcomposer.org/installer -o composer-setup.php && \
+    php composer-setup.php --install-dir=/usr/local/bin --filename=composer
