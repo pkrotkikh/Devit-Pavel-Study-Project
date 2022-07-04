@@ -1,5 +1,5 @@
 <template>
-    <div class="tweet-container">
+    <article class="tweet-container">
         <div class="write-tweet-text-container">
             <div class="float-left user-avatar-container">
                 <img src="/images/profile/2.jpeg" alt="" class="user-avatar-image">
@@ -16,24 +16,23 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci delectus dicta explicabo harum incidunt nisi totam voluptatem. Beatae commodi eligendi, est maiores natus voluptatibus. Ab aliquam consequuntur fuga illum!</p>
 
                     <div class="tweet-actions">
-                        <div class="tweet-action">
-                            <img class="tweet-action-image" src="/svg/tweet-options/reply.svg" alt="">
-                            <p class="tweet-action-counter">1</p>
-                        </div>
-                        <div class="tweet-action">
-                            <img src="/svg/tweet-options/retweet.svg" alt="">
-                            <p class="tweet-action-counter">5</p>
-                        </div>
-                        <div class="tweet-action">
-                            <img src="/svg/tweet-options/like.svg" alt="">
-                            <p class="tweet-action-counter">10</p>
-                        </div>
-                        <div class="tweet-action">
-                            <img src="/svg/tweet-options/share.svg" alt="">
-                        </div>
+                        <tweet-reply-button></tweet-reply-button>
+                        <tweet-retweet-button></tweet-retweet-button>
+                        <tweet-like-button></tweet-like-button>
+                        <tweet-share-button></tweet-share-button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </article>
 </template>
+
+<script>
+import TweetReplyButton from "../UI/Buttons/TweetReplyButton";
+import TweetRetweetButton from "../UI/Buttons/TweetRetweetButton";
+import TweetLikeButton from "../UI/Buttons/TweetLikeButton";
+import TweetShareButton from "../UI/Buttons/TweetShareButton";
+export default {
+    components: {TweetShareButton, TweetLikeButton, TweetRetweetButton, TweetReplyButton}
+}
+</script>

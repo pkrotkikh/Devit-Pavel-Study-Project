@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import WriteTweet from "../WriteTweet.vue";
-import Tweet from "../Tweet.vue";
-import HomeHeader from "../HomeHeader";
-import ShowNewTweets from "../ShowNewTweets";
+import WriteTweet from "../components/WriteTweet";
+import Tweet from "../components/Tweet.vue";
+import HomeHeader from "../components/HomeHeader";
+import ShowNewTweets from "../components/ShowNewTweets";
 import axios from 'axios';
 
 export default {
@@ -31,8 +31,6 @@ export default {
             .catch(e => {
                 this.errors.push(e)
             })
-
-        console.log(12321312);
     }
 }
 </script>

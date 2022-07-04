@@ -23,9 +23,9 @@
 <body>
     <div id="app" class="app">
         <div class="row twitter-container">
-            <div class="vertical-navbar">
+            <header class="vertical-navbar">
                 <twitter-navbar></twitter-navbar>
-            </div>
+            </header>
             <main role="main" class="column-right content-container">
                 @yield('content')
             </main>

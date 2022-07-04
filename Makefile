@@ -23,7 +23,6 @@ watch:
 build-img: ## Build images
 	$(docker_compose_bin) $(COMPOSE_CONFIG) build
 install:
-	$(docker_compose_bin) $(COMPOSE_CONFIG) exec $(USER_OPTION) $(PHP_SERVICE) npm install
 	$(docker_compose_bin) $(COMPOSE_CONFIG) exec $(USER_OPTION) $(PHP_SERVICE) composer install
 sh-php:
 	$(docker_compose_bin) $(COMPOSE_CONFIG) exec $(USER_OPTION) $(PHP_SERVICE) bash
