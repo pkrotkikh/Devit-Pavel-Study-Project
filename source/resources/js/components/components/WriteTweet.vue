@@ -14,32 +14,32 @@
                               placeholder="What's happening?"></textarea>
 
                     <div class="can-reply-option-container">
-                        <img src="/svg/create-tweet/globe.svg" class="tweet-globe-option">
+                        <globe-icon class="tweet-globe-option" width="35" height="35"></globe-icon>
                         <p class="float-left can-reply-option-text">Everyone can reply</p>
                     </div>
 
                     <div class="options-container">
                         <div class="clear-both">
                             <div class="tweet-option-icons">
-                                <img src="/svg/create-tweet/select-image.svg">
+                                <select-image-icon width="24" height="24"></select-image-icon>
                             </div>
                             <div class="tweet-option-icons">
-                                <img src="/svg/create-tweet/select-gifs.svg">
+                                <select-gifs-icon width="24" height="24"></select-gifs-icon>
                             </div>
                             <div class="tweet-option-icons">
-                                <img src="/svg/create-tweet/graph.svg">
+                                <barchart-icon width="24" height="24"></barchart-icon>
                             </div>
                         </div>
 
                         <div class="clear-both">
                             <div class="tweet-option-icons">
-                                <img src="/svg/create-tweet/smile.svg">
+                                <smile-icon width="24" height="24"></smile-icon>
                             </div>
                             <div class="tweet-option-icons">
-                                <img src="/svg/create-tweet/calendar.svg">
+                                <calendar-icon width="24" height="24"></calendar-icon>
                             </div>
                             <div class="tweet-option-icons">
-                                <img src="/svg/create-tweet/geolocation.svg">
+                                <geolocation-icon width="24" height="24"></geolocation-icon>
                             </div>
                         </div>
 
@@ -50,3 +50,16 @@
         </div>
     </form>
 </template>
+
+<script>
+import GlobeIcon from "../UI/Icons/CreateTweet/GlobeIcon";
+import SelectImageIcon from "../UI/Icons/CreateTweet/SelectImageIcon";
+import SelectGifsIcon from "../UI/Icons/CreateTweet/SelectGifsIcon";
+import BarchartIcon from "../UI/Icons/CreateTweet/BarchartIcon";
+import SmileIcon from "../UI/Icons/CreateTweet/SmileIcon";
+import CalendarIcon from "../UI/Icons/CreateTweet/CalendarIcon";
+import GeolocationIcon from "../UI/Icons/CreateTweet/GeolocationIcon";
+export default {
+    components: {GeolocationIcon, CalendarIcon, SmileIcon, BarchartIcon, SelectGifsIcon, SelectImageIcon, GlobeIcon}
+}
+</script>

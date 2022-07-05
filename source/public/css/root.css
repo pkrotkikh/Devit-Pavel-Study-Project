@@ -192,8 +192,6 @@ html, body{
 
 .tweet-globe-option {
     filter: invert(47%) sepia(98%) saturate(2195%) hue-rotate(180deg) brightness(100%) contrast(89%);
-    height: 45px;
-    width: 45px;
     float: left;
     cursor: pointer;
     padding: 0 10px;
