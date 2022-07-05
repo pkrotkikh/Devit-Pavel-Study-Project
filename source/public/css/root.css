@@ -77,30 +77,11 @@ html, body{
 }
 
 
-/* Write tweet component */
+/*-------------HomeHeader-------------*/
 .user-message-header {
     position: sticky;
     top: 0;
     padding-left: 20px;
-}
-
-.user-message-textarea {
-    width: 100%;
-    background-color: black;
-    border: 0;
-    color: white;
-    font-size: 22px;
-    height: 40px;
-    min-width: 252px;
-    min-height: 40px;
-    max-height: 150px;
-    overflow: auto;
-}
-
-.user-message-container {
-    width: 80%;
-    min-width: 240px;
-    margin-left: 5px;
 }
 
 .user-message-header-container {
@@ -116,33 +97,6 @@ html, body{
     overflow: hidden;
 }
 
-.write-tweet-text-container {
-    width: 100%;
-    height: 100%;
-}
-
-.write-tweet-text-container .user-avatar-container {
-    text-align: center;
-    width: 15%;
-    min-width: 48px;
-    height: 100%;
-}
-
-.user-avatar-container .user-avatar-image {
-    width: 48px;
-    height: 48px;
-    border-radius: 50px;
-}
-
-.write-tweet-container {
-    border: 1px  solid gray;
-    border-top: 0;
-    padding: 10px;
-    width: 100%;
-    display: block;
-    overflow: auto;
-}
-
 .vertical-center {
     margin: 0;
     position: absolute;
@@ -151,88 +105,23 @@ html, body{
     transform: translateY(-50%);
 }
 
-.can-reply-option-container {
-    color: #1d9bf0;
-    border-bottom: 1px solid gray;
-    height: auto;
-    width: 100%;
-    overflow: auto;
-    display: block;
-    margin-bottom: 20px;
-    cursor: pointer;
-}
-
 .can-reply-option-image {
 
-}
-
-.can-reply-option-text {
-    margin-bottom: 0;
-    line-height: 45px;
-}
-
-.tweet-submit-input {
-    background-color: #1d9bf0;
-    border-radius: 50px;
-    padding: 5px 20px;
-    border: 0;
-    color: white;
-    font-size: 18px;
-}
-
-.tweet-option-icons {
-    padding: 5px 10px 0 10px;
-    float: left;
-    cursor: pointer;
 }
 
 .user-message-paragraph {
     margin-bottom: 0;
 }
 
-.tweet-globe-option {
-    filter: invert(47%) sepia(98%) saturate(2195%) hue-rotate(180deg) brightness(100%) contrast(89%);
-    float: left;
-    cursor: pointer;
-    padding: 0 10px;
-}
-
 .no-wrap {
     white-space: nowrap;
 }
 
+
+/* Write tweet component */
+
+
 /*Tweet*/
-.tweet-container {
-    border: 1px  solid gray;
-    border-top: 0;
-    padding: 10px;
-    width: 100%;
-    display: block;
-    overflow: auto;
-}
-
-.user-name-text {
-    padding-right: 10px;
-    font-weight: bolder;
-}
-
-.user-message-row {
-    width: 100%;
-}
-
-.user-tag-text {
-    padding-right: 10px;
-    color: gray;
-}
-
-.user-created-at-text {
-    color: gray;
-}
-
-.user-message-text {
-    clear: both
-}
-
 .tweet-action {
     padding: 0 5%;
     float: left;
