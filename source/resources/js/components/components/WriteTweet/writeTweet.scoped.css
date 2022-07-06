@@ -1,21 +1,10 @@
-.message-textarea {
+.tweet-container {
+    border: 1px  solid gray;
+    border-top: 0;
+    padding: 10px;
     width: 100%;
-    background-color: black;
-    border: 0;
-    color: white;
-    font-size: 22px;
-    height: 40px;
-    min-width: 252px;
-    min-height: 40px;
-    max-height: 150px;
+    display: block;
     overflow: auto;
-}
-
-.message-container {
-    width: 80%;
-    min-width: 240px;
-    margin-left: 5px;
-    float: left;
 }
 
 .write-tweet-container {
@@ -37,12 +26,23 @@
     border-radius: 50px;
 }
 
-.tweet-container {
-    border: 1px  solid gray;
-    border-top: 0;
-    padding: 10px;
+.message-container {
+    width: 80%;
+    min-width: 240px;
+    margin-left: 5px;
+    float: left;
+}
+
+.message-textarea {
     width: 100%;
-    display: block;
+    background-color: black;
+    border: 0;
+    color: white;
+    font-size: 22px;
+    height: 40px;
+    min-width: 252px;
+    min-height: 40px;
+    max-height: 150px;
     overflow: auto;
 }
 
@@ -57,28 +57,6 @@
     cursor: pointer;
 }
 
-.can-reply-text {
-    margin-bottom: 0;
-    line-height: 45px;
-    float: left;
-}
-
-.tweet-submit-input {
-    background-color: #1d9bf0;
-    border-radius: 50px;
-    padding: 5px 20px;
-    border: 0;
-    color: white;
-    font-size: 18px;
-    float: right;
-}
-
-.option-icon {
-    padding: 5px 10px 0 10px;
-    float: left;
-    cursor: pointer;
-}
-
 .globe-option {
     filter: invert(47%) sepia(98%) saturate(2195%) hue-rotate(180deg) brightness(100%) contrast(89%);
     float: left;
@@ -88,17 +66,45 @@
     width: 45px;
 }
 
-.float-left {
+.can-reply-text {
+    margin-bottom: 0;
+    line-height: 45px;
     float: left;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.options-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.option-icon {
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.tweet-submit-container {
+    margin-left: auto;
+}
+
+.tweet-submit-input {
+    background-color: #1d9bf0;
+    border-radius: 50px;
+    padding: 5px 20px;
+    border: 0;
+    color: white;
+    font-size: 18px;
 }
 
 /*ADAPTIVE*/
 @media only screen and (max-width: 576px) {
-    .user-message-textarea {
+    .message-textarea {
         font-size: 12px;
-    }
-
-    .clear-both {
-        clear: both;
     }
 }

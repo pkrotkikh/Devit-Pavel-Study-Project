@@ -17482,7 +17482,7 @@ var _hoisted_9 = {
   "class": "options-container"
 };
 var _hoisted_10 = {
-  "class": "clear-both"
+  "class": "options-row"
 };
 var _hoisted_11 = {
   "class": "option-icon"
@@ -17494,7 +17494,7 @@ var _hoisted_13 = {
   "class": "option-icon"
 };
 var _hoisted_14 = {
-  "class": "clear-both"
+  "class": "options-row"
 };
 var _hoisted_15 = {
   "class": "option-icon"
@@ -17507,11 +17507,13 @@ var _hoisted_17 = {
 };
 
 var _hoisted_18 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "tweet-submit-container"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "submit",
     "class": "tweet-submit-input",
     value: "Tweet"
-  }, null, -1
+  })], -1
   /* HOISTED */
   );
 });
@@ -17760,7 +17762,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".message-textarea[data-v-3857357e] {\n    width: 100%;\n    background-color: black;\n    border: 0;\n    color: white;\n    font-size: 22px;\n    height: 40px;\n    min-width: 252px;\n    min-height: 40px;\n    max-height: 150px;\n    overflow: auto;\n}\n.message-container[data-v-3857357e] {\n    width: 80%;\n    min-width: 240px;\n    margin-left: 5px;\n    float: left;\n}\n.write-tweet-container[data-v-3857357e] {\n    width: 100%;\n    height: 100%;\n}\n.avatar-container[data-v-3857357e] {\n    text-align: center;\n    width: 15%;\n    min-width: 48px;\n    height: 100%;\n    float: left;\n}\n.avatar-image[data-v-3857357e] {\n    width: 48px;\n    height: 48px;\n    border-radius: 50px;\n}\n.tweet-container[data-v-3857357e] {\n    border: 1px  solid gray;\n    border-top: 0;\n    padding: 10px;\n    width: 100%;\n    display: block;\n    overflow: auto;\n}\n.can-reply-container[data-v-3857357e] {\n    color: #1d9bf0;\n    border-bottom: 1px solid gray;\n    height: auto;\n    width: 100%;\n    overflow: auto;\n    display: block;\n    margin-bottom: 20px;\n    cursor: pointer;\n}\n.can-reply-text[data-v-3857357e] {\n    margin-bottom: 0;\n    line-height: 45px;\n    float: left;\n}\n.tweet-submit-input[data-v-3857357e] {\n    background-color: #1d9bf0;\n    border-radius: 50px;\n    padding: 5px 20px;\n    border: 0;\n    color: white;\n    font-size: 18px;\n    float: right;\n}\n.option-icon[data-v-3857357e] {\n    padding: 5px 10px 0 10px;\n    float: left;\n    cursor: pointer;\n}\n.globe-option[data-v-3857357e] {\n    filter: invert(47%) sepia(98%) saturate(2195%) hue-rotate(180deg) brightness(100%) contrast(89%);\n    float: left;\n    cursor: pointer;\n    padding: 0 10px;\n    height: 45px;\n    width: 45px;\n}\n.float-left[data-v-3857357e] {\n    float: left;\n}\n\n/*ADAPTIVE*/\n@media only screen and (max-width: 576px) {\n.user-message-textarea[data-v-3857357e] {\n        font-size: 12px;\n}\n.clear-both[data-v-3857357e] {\n        clear: both;\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".tweet-container[data-v-3857357e] {\n    border: 1px  solid gray;\n    border-top: 0;\n    padding: 10px;\n    width: 100%;\n    display: block;\n    overflow: auto;\n}\n.write-tweet-container[data-v-3857357e] {\n    width: 100%;\n    height: 100%;\n}\n.avatar-container[data-v-3857357e] {\n    text-align: center;\n    width: 15%;\n    min-width: 48px;\n    height: 100%;\n    float: left;\n}\n.avatar-image[data-v-3857357e] {\n    width: 48px;\n    height: 48px;\n    border-radius: 50px;\n}\n.message-container[data-v-3857357e] {\n    width: 80%;\n    min-width: 240px;\n    margin-left: 5px;\n    float: left;\n}\n.message-textarea[data-v-3857357e] {\n    width: 100%;\n    background-color: black;\n    border: 0;\n    color: white;\n    font-size: 22px;\n    height: 40px;\n    min-width: 252px;\n    min-height: 40px;\n    max-height: 150px;\n    overflow: auto;\n}\n.can-reply-container[data-v-3857357e] {\n    color: #1d9bf0;\n    border-bottom: 1px solid gray;\n    height: auto;\n    width: 100%;\n    overflow: auto;\n    display: block;\n    margin-bottom: 20px;\n    cursor: pointer;\n}\n.globe-option[data-v-3857357e] {\n    filter: invert(47%) sepia(98%) saturate(2195%) hue-rotate(180deg) brightness(100%) contrast(89%);\n    float: left;\n    cursor: pointer;\n    padding: 0 10px;\n    height: 45px;\n    width: 45px;\n}\n.can-reply-text[data-v-3857357e] {\n    margin-bottom: 0;\n    line-height: 45px;\n    float: left;\n}\n.options-container[data-v-3857357e] {\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    align-items: center;\n}\n.options-row[data-v-3857357e] {\n    display: flex;\n    flex-direction: row;\n}\n.option-icon[data-v-3857357e] {\n    padding: 0 10px;\n    cursor: pointer;\n}\n.tweet-submit-container[data-v-3857357e] {\n    margin-left: auto;\n}\n.tweet-submit-input[data-v-3857357e] {\n    background-color: #1d9bf0;\n    border-radius: 50px;\n    padding: 5px 20px;\n    border: 0;\n    color: white;\n    font-size: 18px;\n}\n\n/*ADAPTIVE*/\n@media only screen and (max-width: 576px) {\n.message-textarea[data-v-3857357e] {\n        font-size: 12px;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

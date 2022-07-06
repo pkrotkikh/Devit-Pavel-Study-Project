@@ -32,7 +32,7 @@ export default {
                     </div>
 
                     <div class="options-container">
-                        <div class="clear-both">
+                        <div class="options-row">
                             <div class="option-icon">
                                 <select-image-icon width="24" height="24"></select-image-icon>
                             </div>
@@ -44,7 +44,7 @@ export default {
                             </div>
                         </div>
 
-                        <div class="clear-both">
+                        <div class="options-row">
                             <div class="option-icon">
                                 <smile-icon width="24" height="24"></smile-icon>
                             </div>
@@ -56,7 +56,9 @@ export default {
                             </div>
                         </div>
 
-                        <input type="submit" class="tweet-submit-input" value="Tweet">
+                        <div class="tweet-submit-container">
+                            <input type="submit" class="tweet-submit-input" value="Tweet">
+                        </div>
                     </div>
                 </div>
             </div>
