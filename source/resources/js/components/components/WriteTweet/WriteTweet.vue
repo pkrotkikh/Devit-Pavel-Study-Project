@@ -13,45 +13,45 @@ export default {
 
 <template>
     <form action="">
-        <div class="write-tweet-container">
-            <div class="write-tweet-text-container">
-                <div class="float-left user-avatar-container">
-                    <img src="/images/profile/1.jpeg" alt="" class="user-avatar-image">
+        <div class="tweet-container">
+            <div class="write-tweet-container">
+                <div class="avatar-container">
+                    <img src="/images/profile/1.jpeg" alt="" class="avatar-image">
                 </div>
 
-                <div class="float-left user-message-container">
+                <div class="message-container">
                     <textarea name="text"
                               oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
                               id="tweet-textarea"
-                              class="user-message-textarea box-sizing-border"
+                              class="message-textarea"
                               placeholder="What's happening?"></textarea>
 
-                    <div class="can-reply-option-container">
-                        <globe-icon class="tweet-globe-option"></globe-icon>
-                        <p class="float-left can-reply-option-text">Everyone can reply</p>
+                    <div class="can-reply-container">
+                        <globe-icon class="globe-option"></globe-icon>
+                        <p class="can-reply-text">Everyone can reply</p>
                     </div>
 
                     <div class="options-container">
                         <div class="clear-both">
-                            <div class="tweet-option-icons">
+                            <div class="option-icon">
                                 <select-image-icon width="24" height="24"></select-image-icon>
                             </div>
-                            <div class="tweet-option-icons">
+                            <div class="option-icon">
                                 <select-gifs-icon width="24" height="24"></select-gifs-icon>
                             </div>
-                            <div class="tweet-option-icons">
+                            <div class="option-icon">
                                 <barchart-icon width="24" height="24"></barchart-icon>
                             </div>
                         </div>
 
                         <div class="clear-both">
-                            <div class="tweet-option-icons">
+                            <div class="option-icon">
                                 <smile-icon width="24" height="24"></smile-icon>
                             </div>
-                            <div class="tweet-option-icons">
+                            <div class="option-icon">
                                 <calendar-icon width="24" height="24"></calendar-icon>
                             </div>
-                            <div class="tweet-option-icons">
+                            <div class="option-icon">
                                 <geolocation-icon width="24" height="24"></geolocation-icon>
                             </div>
                         </div>
