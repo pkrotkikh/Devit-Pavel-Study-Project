@@ -4,7 +4,8 @@ import RetweetOption from "../../UI/Icons/TweetOptions/RetweetOption";
 import LikeOption from "../../UI/Icons/TweetOptions/LikeOption";
 import ShareOption from "../../UI/Icons/TweetOptions/ShareOption";
 export default {
-    components: {ReplyOption, RetweetOption, LikeOption, ShareOption}
+    components: {ReplyOption, RetweetOption, LikeOption, ShareOption},
+    props: ["text", "author"],
 }
 </script>
 
@@ -17,13 +18,13 @@ export default {
 
             <div class="message-container">
                 <div class="message-credentials">
-                    <p class="credentials-p credentials-name">Chris Hadfield</p>
+                    <p class="credentials-p credentials-name">{{ this.author.name }}</p>
                     <p class="credentials-p credentials-tag">@Cmdr_Hadfield</p>
                     <p class="credentials-p credentials-created-at">20h</p>
                 </div>
 
                 <div class="message-text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci delectus dicta explicabo harum incidunt nisi totam voluptatem. Beatae commodi eligendi, est maiores natus voluptatibus. Ab aliquam consequuntur fuga illum!</p>
+                    <p>{{this.text}}</p>
 
                     <div class="tweet-actions">
                         <div class="action">

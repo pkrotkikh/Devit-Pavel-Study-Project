@@ -14,13 +14,13 @@ export default {
         errors: [],
     }),
 
-    created() {
+    mounted() {
         let data = axios.get('http://localhost/api/v1/tweets')
-            .then(response => (this.tweets = response))
+            .then(response => (this.tweets = response.data))
             .catch(e => {
                 this.errors.push(e)
             })
-    }
+    },
 }
 </script>
 
@@ -28,10 +28,9 @@ export default {
     <home-header></home-header>
     <write-tweet></write-tweet>
     <show-new-tweets></show-new-tweets>
-    <tweet></tweet>
-    <tweet></tweet>
-    <tweet></tweet>
-    <tweet></tweet>
-    <tweet></tweet>
+    <tweet v-for="tweet in this.tweets"
+           :text="tweet.text"
+           :author="tweet.author"
+    ></tweet>
 </template>
 

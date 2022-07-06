@@ -22,9 +22,6 @@ export default {
             height: 35,
         }
     },
-    mounted () {
-        console.log(this.$style.red);
-    },
 }
 </script>
 

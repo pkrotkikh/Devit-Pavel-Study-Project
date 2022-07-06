@@ -13,6 +13,8 @@ services:
             MYSQL_DATABASE: todos
         ports:
             - "3306:3306"
+        networks:
+            twitter:
     php:
         build:
             context: ../

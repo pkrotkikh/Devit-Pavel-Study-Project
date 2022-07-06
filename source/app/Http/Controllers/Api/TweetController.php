@@ -89,7 +89,7 @@ class TweetController extends Controller
     )]
     public function index() : Collection
     {
-        $tweets = Tweet::all();
+        $tweets = Tweet::with("author")->get();
 
         return $tweets;
     }
