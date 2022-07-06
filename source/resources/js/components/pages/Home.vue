@@ -1,19 +1,8 @@
-<template>
-    <home-header></home-header>
-    <write-tweet></write-tweet>
-    <show-new-tweets></show-new-tweets>
-    <tweet></tweet>
-    <tweet></tweet>
-    <tweet></tweet>
-    <tweet></tweet>
-    <tweet></tweet>
-</template>
-
 <script>
-import WriteTweet from "../components/WriteTweet";
-import Tweet from "../components/Tweet.vue";
-import HomeHeader from "../components/HomeHeader";
-import ShowNewTweets from "../components/ShowNewTweets";
+import WriteTweet from "../components/WriteTweet/WriteTweet";
+import Tweet from "../components/Tweet/Tweet.vue";
+import HomeHeader from "../components/HomeHeader/HomeHeader";
+import ShowNewTweets from "../components/ShowNewTweets/ShowNewTweets";
 import axios from 'axios';
 
 export default {
@@ -34,3 +23,15 @@ export default {
     }
 }
 </script>
+
+<template>
+    <home-header></home-header>
+    <write-tweet></write-tweet>
+    <show-new-tweets></show-new-tweets>
+    <tweet></tweet>
+    <tweet></tweet>
+    <tweet></tweet>
+    <tweet></tweet>
+    <tweet></tweet>
+</template>
+

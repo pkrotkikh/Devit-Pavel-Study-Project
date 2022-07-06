@@ -1,0 +1,32 @@
+.headerContainer {
+    height: 50px;
+    position: sticky;
+    background-color: black;
+    top: 0;
+    padding: 10px;
+    border: 1px solid gray;
+    border-bottom: 0;
+    border-top: 0;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    padding-left: 20px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}

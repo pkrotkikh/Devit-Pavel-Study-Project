@@ -23,7 +23,7 @@
 <body>
     <div id="app" class="app">
         <div class="row twitter-container">
-            <header class="vertical-navbar">
+            <header role="banner" class="vertical-navbar">
                 <twitter-navbar></twitter-navbar>
             </header>
             <main role="main" class="column-right content-container">

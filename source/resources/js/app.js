@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import router from './router/index'
-import TwitterNavbar from "./components/components/TwitterNavbar"
+import TwitterNavbar from "./components/components/TwitterNavbar/TwitterNavbar"
 
 const app = createApp({})
 app.component('twitter-navbar', TwitterNavbar)

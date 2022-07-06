@@ -14,47 +14,11 @@ html, body{
 .twitter-container {
     max-width: 800px;
     margin: 0 auto;
-    height:100%;
+    height: 100%;
 }
 
 .content-container {
     margin-left: 15%;
-}
-
-.navbar-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-.navbar-ul .navbar-li .navbar-link {
-    display: block;
-    color: #000;
-    padding: 8px;
-    margin: 5px auto;
-    text-decoration: none;
-    width: 50px;
-    height: 50px;
-}
-
-.navbar-ul .navbar-li .navbar-link img{
-    width: 35px;
-    height: 35px;
-}
-
-.navbar-ul .navbar-li .navbar-link:hover {
-    background-color: #555;
-    color: white;
-    border-radius: 50px;
-}
-
-.float-left {
-    float: left;
-}
-
-.float-right {
-    float: right;
 }
 
 .vertical-navbar{
@@ -70,115 +34,7 @@ html, body{
     width: 85%;
 }
 
-
 .row:after {
     content: "";
     clear: both;
-}
-
-
-/*-------------HomeHeader-------------*/
-.user-message-header {
-    position: sticky;
-    top: 0;
-    padding-left: 20px;
-}
-
-.user-message-header-container {
-    height: 50px;
-    position: sticky;
-    background-color: black;
-    top: 0;
-    padding: 10px;
-    border: 1px solid gray;
-    border-bottom: 0px;
-    border-top: 0px;
-    z-index: 100;
-    overflow: hidden;
-}
-
-.vertical-center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-.can-reply-option-image {
-
-}
-
-.user-message-paragraph {
-    margin-bottom: 0;
-}
-
-.no-wrap {
-    white-space: nowrap;
-}
-
-
-/* Write tweet component */
-
-
-/*Tweet*/
-.tweet-action {
-    padding: 0 5%;
-    float: left;
-    cursor: pointer;
-}
-
-.tweet-action:first-child{
-    padding: 0 5% 0 0;
-}
-
-.tweet-action:last-child{
-    padding: 0 0 0 5%;
-}
-
-.tweet-action-image {
-    float: left;
-}
-
-.tweet-action-counter {
-    padding-left: 10px;
-    float: right;
-}
-
-/*show new tweets*/
-.show-new-tweets-container {
-    border: 1px solid gray;
-    border-top: 0;
-    padding: 15px 0;
-}
-
-.show-new-tweets-container p {
-    text-align: center;
-    font-size: 16px;
-    color: #1d9bf0;
-    margin: 0;
-    cursor: pointer;
-}
-
-.clear-both {
-    clear: none;
-}
-
-/*ADAPTIVE*/
-@media only screen and (max-width: 576px) {
-    .user-message-row p {
-        font-size: 12px;
-    }
-
-    .user-message-text {
-        font-size: 10px;
-    }
-
-    .user-message-textarea {
-        font-size: 12px;
-    }
-
-    .clear-both {
-        clear: both;
-    }
 }
