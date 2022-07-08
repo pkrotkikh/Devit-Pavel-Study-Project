@@ -18,18 +18,17 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/root.css') }}" rel="stylesheet">
+    <style>
+        html, body, #app {
+            height:100%;
+            width: 100%;
+            font-family: "Helvetica Neue";
+        }
+    </style>
 </head>
 <body>
-    <div id="app" class="app">
-        <div class="row app-container">
-            <header role="banner" class="header">
-                <twitter-navbar></twitter-navbar>
-            </header>
-            <main role="main" class="column-right content-container">
-                @yield('content')
-            </main>
-        </div>
-    </div>
+<div id="app">
+    <login-page></login-page>
+</div>
 </body>
 </html>

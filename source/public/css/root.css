@@ -11,7 +11,7 @@ html, body{
     width: 100%;
 }
 
-.twitter-container {
+.app-container {
     max-width: 800px;
     margin: 0 auto;
     height: 100%;
@@ -21,7 +21,7 @@ html, body{
     margin-left: 15%;
 }
 
-.vertical-navbar{
+.header{
     height:100%;
     position: fixed;
     min-width: 80px;
