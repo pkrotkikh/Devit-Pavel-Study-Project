@@ -29,3 +29,9 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y nodejs \
     npm
 RUN npm install
+
+# RUN sudo apt install zip unzip php-zip
+RUN sudo apt-get install libz-dev libzip-dev -y
+RUN sudo apt-get install unzip -y
+RUN pecl install zlib zip
+RUN docker-php-ext-install zip

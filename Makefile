@@ -4,8 +4,8 @@ include .env
 
 #----------- Make Environment ----------------------
 SHELL=/bin/sh
-docker_bin=$(shell command -v docker 3> /dev/null)
-docker_compose_bin=$(shell command -v docker-compose 3> /dev/null)
+docker_bin=$(shell command -v docker 2> /dev/null)
+docker_compose_bin=$(shell command -v docker-compose 2> /dev/null)
 PHP_SERVICE=php
 USER_OPTION=--user="$(CURRENT_USER_ID):$(CURRENT_USER_GROUP_ID)"
 COMPOSE_CONFIG=--env-file .env -p $(PROJECT_NAME) -f docker/docker-compose.yml
@@ -24,6 +24,7 @@ build-img: ## Build images
 	$(docker_compose_bin) $(COMPOSE_CONFIG) build
 install:
 	$(docker_compose_bin) $(COMPOSE_CONFIG) exec $(USER_OPTION) $(PHP_SERVICE) composer install
+	$(docker_compose_bin) $(COMPOSE_CONFIG) exec -u 0 $(PHP_SERVICE) npm install
 sh-php:
 	$(docker_compose_bin) $(COMPOSE_CONFIG) exec $(USER_OPTION) $(PHP_SERVICE) bash
 up: ## Start all containers (in background)
